@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <!-- Link para o Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset e Configurações Globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Garante que o corpo ocupe a altura total da janela */
+            margin: 0;
+        }
+
+        /* Fundo com imagem desfocada */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 120%;
+            height: 100%;
+            background-image: url("coffee-background-pulyf4svn5bnfs7b.jpg");
+            background-size: cover;
+            background-position: center;
+            filter: blur(6px);
+            z-index: -2;
+        }
+
+        /* Ajuste para telas menores - Alinhando a imagem à direita */
+        @media (max-width: 850px) {
+            body::before {
+                background-position: right center;
+                width: 140%
+            }
+        }
+
+        /* Camada semi-transparente */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+
+        /* Container principal */
+        .container {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center; /* Centraliza o conteúdo verticalmente */
+            flex: 1; /* Faz o container ocupar o espaço restante */
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 30px;
+            line-height: 1.4;
+            text-align: center;
+            color: #fff;
+            max-width: 80%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        h1 .highlight {
+            font-size: 38px;
+            font-weight: bolder;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            color: #ff9d2f;
+        }
+
+        video {
+            width: 80%;
+            max-width: 720px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Botões estilizados */
+        .button-container {
+            display: flex; /* Mantém o espaço reservado */
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px; /* Espaço entre o vídeo e o botão */
+            opacity: 0; /* Inicialmente invisível */
+            visibility: hidden; /* Esconde o botão até o momento certo */
+            transition: opacity 0.5s ease; /* Transição suave ao aparecer */
+        }
+
+        .button-container.visible {
+            opacity: 1; /* Torna visível */
+            visibility: visible; /* Mostra o botão */
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            font-size: 16px;
+            color: #fff;
+            background: linear-gradient(135deg, #ff9d2f, #ff6126);
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn i {
+            margin-right: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: transparent;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+            flex-shrink: 0; /* Evita que o rodapé encolha */
+        }
+
+        footer a {
+            color: #ff9d2f;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #ff6126;
+        }
+
+        .social-links {
+            margin: 10px 0;
+        }
+
+        .social-links a {
+            color: #fff;
+            font-size: 18px;
+            margin: 0 10px;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #ff9d2f;
+            transform: scale(1.2);
+        }
+
+        /* Responsividade com limite de duas linhas */
+        @media (max-width: 850px) {
+            h1 {
+                font-size: 21px;
+                line-height: 1.4;
+                text-align: center;
+                width: calc(100% - 0px);
+                margin: 0 auto;
+                margin-top: -30%;
+                color: #fff;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            h1 .highlight {
+                font-size: 26px;
+                font-weight: bolder;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                margin-top: 0px;
+                color: #ff9d2f;
+                display: inline-block;
+            }
+
+            video {
+                align-items: center;
+                width: calc(100% - 30px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+    <!-- Conteúdo principal -->
+    <div class="container">
+        <h1>
+            Descubra por qué este café se hizo conocido como
+            <span class="highlight">"Café bariátrico"</span>
+        </h1>
+        <br>
+        <br>
+        <video id="video" controls>
+            <source src="KYAN & MU540 - brinks!.mp4" type="video/mp4">
+            Seu navegador não suporta a tag de vídeo.
+        </video>
+        <div class="button-container" id="buttonContainer">
+            <a href="https://i.gifer.com/origin/2d/2d4adaf81d4a24d3da1a5c93834e56b9_w200.gif" target="_blank" class="btn">
+                <i class="fas fa-link"></i> Acceder a la guía
+            </a>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>
+            &copy; 2024 Su Sitio. Todos los derechos reservados. <br>
+            <a href="PolíticadePrivacidad.html" target="_blank">Política de Privacidad</a> | <a href="Termos.html" target="_blank">Términos de Uso</a>
+        </p>
+    </footer>
+
+    <script>
+        const video = document.getElementById("video");
+        const buttonContainer = document.getElementById("buttonContainer");
+
+        video.onplay = function() {
+            setTimeout(function() {
+                buttonContainer.classList.add("visible"); // Aplica a classe para mostrar o botão
+            }, 5000); // 5000ms = 5 segundos
+        };
+    </script>
+</body>
+</html>
