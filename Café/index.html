@@ -146,7 +146,18 @@
             font-size: 14px;
             line-height: 1.6;
             flex-shrink: 0; /* Evita que o rodapé encolha */
-            margin-top: auto; /* Garante que o footer vá para o final da tela */
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: none; /* Inicialmente invisível */
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        footer.show {
+            display: block; /* Torna o footer visível */
+            opacity: 1;
         }
 
         footer a {
@@ -206,10 +217,6 @@
                 align-items: center;
                 width: calc(100% - 30px);
             }
-            
-            footer {
-                margin-bottom: auto;/* Garante o espaço para o footer em dispositivos móveis */
-            }
         }
     </style>
 </head>
@@ -240,7 +247,7 @@
     </div>
     
     <!-- Rodapé -->
-    <footer>
+    <footer id="footer">
         <p>
             &copy; 2024 Su Sitio. Todos los derechos reservados. <br>
             <a href="PolíticadePrivacidad.html" target="_blank">Política de Privacidad</a> | <a href="Termos.html" target="_blank">Términos de Uso</a>
@@ -250,11 +257,21 @@
     <script>
         const video = document.getElementById("video");
         const buttonContainer = document.getElementById("buttonContainer");
+        const footer = document.getElementById("footer");
 
         video.onplay = function() {
             setTimeout(function() {
                 buttonContainer.classList.add("visible"); // Aplica a classe para mostrar o botão
             }, 5000); // 5000ms = 5 segundos
+        };
+
+        // Mostrar o footer quando o usuário rolar até o final da página
+        window.onscroll = function() {
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+                footer.classList.add("show");
+            } else {
+                footer.classList.remove("show");
+            }
         };
     </script>
 </body>
