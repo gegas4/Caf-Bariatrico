@@ -146,6 +146,11 @@
             font-size: 14px;
             line-height: 1.6;
             flex-shrink: 0; /* Evita que o rodapé encolha */
+            position: fixed;
+            bottom: -100px; /* Fica abaixo da tela inicialmente */
+            left: 0;
+            width: 100%;
+            transition: bottom 0.3s ease; /* Transição suave ao aparecer */
         }
 
         footer a {
@@ -205,11 +210,6 @@
                 align-items: center;
                 width: calc(100% - 30px);
             }
-            
-            footer {
-                align-items: center;
-                margin-bottom: -50px;
-            }
         }
     </style>
 </head>
@@ -253,6 +253,16 @@
                 buttonContainer.classList.add("visible"); // Aplica a classe para mostrar o botão
             }, 5000); // 5000ms = 5 segundos
         };
+
+        // Funcionalidade para mostrar o rodapé após rolar a página
+        let isScrolled = false; // Variável para checar se já rolou a página
+
+        window.addEventListener("scroll", function() {
+            if (window.scrollY > 100 && !isScrolled) { // Verifica se rolou para baixo
+                document.querySelector("footer").style.bottom = "0"; // Mostra o rodapé
+                isScrolled = true; // Marca como rolado
+            }
+        });
     </script>
 </body>
 </html>
