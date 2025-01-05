@@ -22,7 +22,7 @@
             color: #fff;
             display: flex;
             flex-direction: column;
-            min-height: 100vh; /* Garante que o corpo ocupe a altura total da janela */
+            min-height: 100vh;
             margin: 0;
             position: relative;
         }
@@ -39,14 +39,6 @@
             background-position: center;
             filter: blur(6px);
             z-index: -2;
-        }
-
-        /* Ajuste para telas menores - Alinhando a imagem à direita */
-        @media (max-width: 850px) {
-            .background-image {
-                background-position: right center;
-                width: 140%;
-            }
         }
 
         /* Camada semi-transparente */
@@ -67,8 +59,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center; /* Centraliza o conteúdo verticalmente */
-            flex: 1; /* Faz o container ocupar o espaço restante */
+            justify-content: center;
+            flex: 1;
             padding: 20px;
         }
 
@@ -79,10 +71,6 @@
             color: #fff;
             max-width: 80%;
             margin: 0 auto;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            overflow: hidden;
         }
 
         h1 .highlight {
@@ -94,27 +82,20 @@
             color: #ff9d2f;
         }
 
-        video {
-            width: 80%;
-            max-width: 720px;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-
         /* Botões estilizados */
         .button-container {
-            display: flex; /* Mantém o espaço reservado */
+            display: flex;
             justify-content: center;
             gap: 15px;
-            margin-top: 20px; /* Espaço entre o vídeo e o botão */
-            opacity: 0; /* Inicialmente invisível */
-            visibility: hidden; /* Esconde o botão até o momento certo */
-            transition: opacity 0.5s ease; /* Transição suave ao aparecer */
+            margin-top: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease;
         }
 
         .button-container.visible {
-            opacity: 1; /* Torna visível */
-            visibility: visible; /* Mostra o botão */
+            opacity: 1;
+            visibility: visible;
         }
 
         .btn {
@@ -138,15 +119,14 @@
             margin-right: 8px;
         }
 
-        /* Footer */
         footer {
             background-color: transparent;
             text-align: center;
             padding: 20px;
             font-size: 14px;
             line-height: 1.6;
-            flex-shrink: 0; /* Evita que o rodapé encolha */
-            margin-top: auto; /* Garante que o footer vá para o final da tela */
+            flex-shrink: 0;
+            margin-top: auto;
         }
 
         footer a {
@@ -159,15 +139,10 @@
             color: #ff6126;
         }
 
-        .social-links {
-            margin: 10px 0;
-        }
-
         .social-links a {
             color: #fff;
             font-size: 18px;
             margin: 0 10px;
-            transition: transform 0.3s ease, color 0.3s ease;
         }
 
         .social-links a:hover {
@@ -175,45 +150,22 @@
             transform: scale(1.2);
         }
 
-        /* Responsividade com limite de duas linhas */
-        @media (max-width: 850px) {
-            h1 {
-                font-size: 20px;
-                line-height: 1.4;
-                text-align: center;
-                width: calc(100% - 0px);
-                margin: 0 auto;
-                margin-top: -30%;
-                color: #fff;
-                display: -webkit-box;
-                -webkit-line-clamp: 3;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
+        /* Ajustando o vídeo para ficar com largura máxima de 50% */
+        .video-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
 
-            h1 .highlight {
-                font-size: 26px;
-                font-weight: bolder;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                margin-top: 0px;
-                color: #ff9d2f;
-                display: inline-block;
-            }
-
-            video {
-                align-items: center;
-                width: calc(100% - 30px);
-            }
-            
-            footer {
-                margin-bottom: auto;/* Garante o espaço para o footer em dispositivos móveis */
-            }
+        #vid_6779568fe627203791e9d90d {
+            width: 100%;
+            height: auto;
         }
     </style>
 </head>
 <body>
+
     <!-- Imagem de fundo fixa -->
     <div class="background-image"></div>
 
@@ -224,21 +176,32 @@
     <div class="container">
         <h1>
             Descubra por qué este café se hizo conocido como
+            <br>
             <span class="highlight">"Café bariátrico"</span>
         </h1>
         <br>
+        <!-- Novo vídeo ajustado para ficar com largura máxima de 50% -->
+        <div class="video-container">
+            <div id="vid_6779568fe627203791e9d90d" style="position: relative; padding: 56.25% 0 0;">
+                <img id="thumb_6779568fe627203791e9d90d" src="https://images.converteai.net/cc00bdd3-208d-4ebd-83a0-4b24c0080b06/players/6779568fe627203791e9d90d/thumbnail.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;" alt="thumbnail">
+                <div id="backdrop_6779568fe627203791e9d90d" style=" -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); position: absolute; top: 0; height: 100%; width: 100%;"></div>
+            </div>
+            <script type="text/javascript" id="scr_6779568fe627203791e9d90d">
+                var s=document.createElement("script"); 
+                s.src="https://scripts.converteai.net/cc00bdd3-208d-4ebd-83a0-4b24c0080b06/players/6779568fe627203791e9d90d/player.js"; 
+                s.async=!0;
+                document.head.appendChild(s);
+            </script>
+        </div>
         <br>
-        <video id="video" controls>
-            <source src="KYAN & MU540 - brinks!.mp4" type="video/mp4">
-            Seu navegador não suporta a tag de vídeo.
-        </video>
+        <!-- Botão -->
         <div class="button-container" id="buttonContainer">
             <a href="https://i.gifer.com/origin/2d/2d4adaf81d4a24d3da1a5c93834e56b9_w200.gif" target="_blank" class="btn">
                 <i class="fas fa-link"></i> Acceder a la guía
             </a>
         </div>
     </div>
-    
+
     <!-- Rodapé -->
     <footer>
         <p>
@@ -247,15 +210,18 @@
         </p>
     </footer>
 
+    <!-- Script para exibir o botão após 10 segundos do carregamento da página -->
     <script>
-        const video = document.getElementById("video");
-        const buttonContainer = document.getElementById("buttonContainer");
+        // Aguardar o carregamento da página
+        window.onload = function() {
+            var buttonContainer = document.getElementById('buttonContainer');
 
-        video.onplay = function() {
+            // Espera 10 segundos após o carregamento da página para mostrar o botão
             setTimeout(function() {
-                buttonContainer.classList.add("visible"); // Aplica a classe para mostrar o botão
-            }, 5000); // 5000ms = 5 segundos
+                buttonContainer.classList.add('visible');
+            }, 10000); // 10 segundos de espera após o carregamento
         };
     </script>
+
 </body>
 </html>
