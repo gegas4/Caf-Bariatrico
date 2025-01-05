@@ -165,6 +165,39 @@
             height: auto;
             border-radius: 15px; /* Borda curva no próprio vídeo */
         }
+
+        /* Responsividade com limite de duas linhas */
+        @media (max-width: 850px) {
+            h1 {
+                font-size: 20px;
+                line-height: 1.4;
+                text-align: center;
+                width: calc(100% - 0px);
+                margin: 0 auto;
+                margin-top: -30%;
+                color: #fff;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            h1 .highlight {
+                font-size: 26px;
+                font-weight: bolder;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                margin-top: 0px;
+                color: #ff9d2f;
+                display: inline-block;
+            }
+
+            video {
+                align-items: center;
+                width: calc(100% - 30px);
+            }
+        }
     </style>
 </head>
 <body>
