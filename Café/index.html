@@ -219,7 +219,8 @@
         justify-content: center;
         align-items: center;
         overflow: hidden; /* Evita a rolagem */
-        position: relative; /* Necessário para a posição absoluta do footer */
+        position: relative; /* Necessário para o posicionamento absoluto do footer */
+        padding-bottom: 50px; /* Espaço para garantir que o footer não seja escondido */
     }
 
     .container {
@@ -231,7 +232,7 @@
     h1 {
         font-size: 10px;
         line-height: 1.2;
-        margin-top: -250px; /* Reduzido para diminuir o espaço */
+        margin-top: 0px; /* Reduzido para diminuir o espaço */
         max-width: 100%; /* Garante que o título não extrapole a largura da tela */
     }
 
@@ -271,8 +272,10 @@
         width: 100%; /* Faz com que o footer ocupe toda a largura */
         text-align: center; /* Alinha o conteúdo do footer ao centro */
         padding: 10px 0; /* Adiciona um pouco de espaçamento ao redor do footer */
+        margin-top: -200px; /* Mantém o espaçamento para o footer */
     }
 }
+
 
 
     </style>
