@@ -197,7 +197,77 @@
                 align-items: center;
                 width: calc(100% - 30px);
             }
+
+            .background-image {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url("coffee-background-pulyf4svn5bnfs7b.jpg");
+                background-size: cover;
+                background-position: 80% center; /* Move a imagem para a esquerda */
+                filter: blur(6px);
+                z-index: -2;
         }
+        }
+
+        @media (orientation: landscape) {
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden; /* Evita a rolagem */
+    }
+
+    .container {
+        max-width: 90vw; /* Limita a largura máxima do conteúdo */
+        max-height: 190vh; /* Limita a altura máxima do conteúdo */
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 10px;
+        line-height: 1.2;
+        margin-top: 0px; /* Reduzido para diminuir o espaço */
+        max-width: 100%; /* Garante que o título não extrapole a largura da tela */
+    }
+
+    h1 .highlight {
+        font-size: 15px;
+    }
+
+    .video-container {
+        width: 40vw; /* Garante que o contêiner ocupe toda a largura da tela */
+        height: 50vh; /* Garante que o contêiner ocupe toda a altura da tela */
+        display: flex;
+        justify-content: center; /* Centraliza o vídeo horizontalmente */
+        align-items: center; /* Centraliza o vídeo verticalmente */
+    }
+
+    video {
+        width: 70%; /* Define a largura do vídeo como 70% da tela */
+        height: auto; /* Mantém a proporção correta do vídeo */
+    }
+
+    .button-container {
+        flex-wrap: wrap;
+        gap: 5px; /* Ajustado para diminuir o espaço entre os botões */
+        margin-top: 5px; /* Diminui o espaço acima dos botões */
+    }
+
+    .btn {
+        padding: 5px 12px; /* Reduzido para tornar o botão menor */
+        font-size: 10px; /* Tamanho da fonte do botão ajustado */
+    }
+
+    footer {
+        font-size: 8px;
+        margin-top: -20px;
+    }
+}
+
     </style>
 </head>
 <body>
