@@ -1,1 +1,1 @@
-/download  https://downloadq.netlify.app  200
+/download/* https://downloadq.netlify.app/:splat 200
