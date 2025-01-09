@@ -1,1 +1,1 @@
-/download/* https://guiaquemacafe.netlify.app/:splat 200
+/download https://guiaquemacafe.netlify.app/:splat 200
