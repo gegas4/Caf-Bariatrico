@@ -1,1 +1,1 @@
-/* /index.html 200
+/download  https://downloadq.netlify.app/  301!
