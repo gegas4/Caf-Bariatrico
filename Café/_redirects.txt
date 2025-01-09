@@ -1,1 +1,1 @@
-/download  https://downloadq.netlify.app  301
+/download  https://downloadq.netlify.app  200
