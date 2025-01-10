@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quema Café</title>
+    <!-- Link para o Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset e Configurações Globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            position: relative;
+        }
+
+        /* Imagem de fundo fixa */
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("coffee-background-pulyf4svn5bnfs7b.jpg");
+            background-size: cover;
+            background-position: center;
+            filter: blur(6px);
+            z-index: -2;
+        }
+
+        /* Camada semi-transparente */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+
+        /* Container principal */
+        .container {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            padding: 20px;
+        }
+
+        h1 .highlight{
+            font-size: 38px;
+            font-weight: bolder;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            color: #ff9d2f           
+        }
+
+        h1  {
+            font-size: 25px;
+            line-height: 1.4;
+            text-align: center;
+            color: #fff;
+            max-width: 80%;
+            margin: 0 auto;
+        }
+
+        /* Botões estilizados */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease;
+        }
+
+        .button-container.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            font-size: 16px;
+            color: #fff;
+            background: linear-gradient(135deg, #ff9d2f, #ff6126);
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn i {
+            margin-right: 8px;
+        }
+
+        footer {
+            background-color: transparent;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+            flex-shrink: 0;
+            margin-top: auto;
+        }
+
+        footer a {
+            color: #ff9d2f;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #ff6126;
+        }
+
+        .social-links a {
+            color: #fff;
+            font-size: 18px;
+            margin: 0 10px;
+        }
+
+        .social-links a:hover {
+            color: #ff9d2f;
+            transform: scale(1.2);
+        }
+
+
+
+        /* Responsividade com limite de duas linhas */
+        @media (max-width: 900px) {
+            h1 {
+                font-size: 16px;
+                line-height: 1.4;
+                text-align: center;
+                
+                width: calc(100% - 0px);
+                margin: 0 auto;
+                margin-top: -4px;
+                color: #fff;
+                display: -webkit-box;
+                -webkit-line-clamp: 4;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            h1 .highlight {
+                font-size: 24px;
+                font-weight: bolder;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                margin-top: 0px;
+                color: #ff9d2f;
+                display: inline-block;
+            }
+
+            .background-image {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url("coffee-background-pulyf4svn5bnfs7b.jpg");
+                background-size: cover;
+                background-position: 80% center; /* Move a imagem para a esquerda */
+                filter: blur(6px);
+                z-index: -2;
+        }
+
+            iframe {
+                width: 350px; /* Reduz largura */
+                height: 400px; /* Reduz altura */
+                margin: 10px auto; /* Adiciona margens laterais automáticas */
+            }
+        }
+
+        @media (max-width: 933px) and (orientation: landscape) {
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow-y: auto; /* Permite rolar verticalmente */
+        position: relative; /* Necessário para o posicionamento absoluto do footer */
+        padding-bottom: 50px; /* Espaço para garantir que o footer não seja escondido */
+    }
+
+    .container {
+        max-width: 90vw; /* Limita a largura máxima do conteúdo */
+        max-height: 190vh; /* Limita a altura máxima do conteúdo */
+        padding: 10px;
+    }
+
+    h1 .highlight {
+        font-size: 15px;
+    }
+
+    h1 {
+        font-size: 10px;
+        line-height: 1.2;
+        margin-top: 25px; /* Reduzido para diminuir o espaço */
+        max-width: 100%; /* Garante que o título não extrapole a largura da tela */
+    }
+
+
+    .button-container {
+        flex-wrap: wrap;
+        gap: 5px; /* Ajustado para diminuir o espaço entre os botões */
+        margin-top: 0px; /* Diminui o espaço acima dos botões */
+    }
+
+    .btn {
+        padding: 5px 12px; /* Reduzido para tornar o botão menor */
+        font-size: 10px; /* Tamanho da fonte do botão ajustado */
+    }
+
+    footer {
+        font-size: 7px;
+        position: absolute; /* Coloca o footer na parte inferior da tela */
+        bottom: 0; /* Garante que o footer fique no final da tela */
+        width: 100%; /* Faz com que o footer ocupe toda a largura */
+        text-align: center; /* Alinha o conteúdo do footer ao centro */
+        padding: 10px 0; /* Adiciona um pouco de espaçamento ao redor do footer */
+        margin-top: 0px; /* Mantém o espaçamento para o footer */
+    }
+
+    iframe {
+                width: 450px; /* Reduz largura */
+                height: 250px; /* Reduz altura */
+                margin: 10px auto; /* Adiciona margens laterais automáticas */
+}
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Imagem de fundo fixa -->
+    <div class="background-image"></div>
+
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+    <!-- Conteúdo principal -->
+    <div class="container">
+        <h1>
+            <span class="highlight">¡Aquí tienes tu guía Quema Café!</span>
+            <br>
+            Puedes verla a continuación o descargarla en tu dispositivo.          
+        </h1>
+
+        <br>
+
+        <!-- Novo vídeo ajustado para ficar com largura máxima de 50% -->
+        <div>
+            <iframe src="https://drive.google.com/file/d/1_qkFTybwy86Ep88jHC4SlNyiL6B5Ktx-/preview" width="640" height="480" allow="autoplay"></iframe>
+            </div>
+            
+        <br>
+
+        <!-- Botão -->
+        <div>
+            <a href="cafe.pdf" download="cafe" class="btn">
+                <i class="fas fa-link"></i> Descargar guía
+            </a>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>
+            &copy; 2025 Su Sitio. Todos los derechos reservados. <br>
+            <a href="PolíticadePrivacidad.html" target="_blank">Política de Privacidad</a> | <a href="Termos.html" target="_blank">Términos de Uso</a>
+        </p>
+    </footer>
+
+    
+</body>
+</html>
