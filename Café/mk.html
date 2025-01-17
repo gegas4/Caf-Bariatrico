@@ -1,64 +1,170 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trige</title>
+    <title>Café com Leite - Benefícios e Informações</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #ffffff; /* Letras brancas */
+            line-height: 1.6;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
-            color: #fff;
-            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('coffee-background-pulyf4svn5bnfs7b.jpg') no-repeat center center fixed;
-            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
+
         header {
+            color: #ffffff;
             text-align: center;
-            margin-bottom: 30px;
+            padding: 20px 0;
+        }
+
+        h1, h2 {
+            color: #ffffff; /* Letras brancas */
+        }
+
+        h2 {
+            margin-top: 20px;
+        }
+
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("coffee-background-pulyf4svn5bnfs7b.jpg");
+            background-size: cover;
+            background-position: center;
+            filter: blur(6px);
+            z-index: -2;
+        }
+
+        .content {
             padding: 20px;
+            flex: 1;
         }
-        h1 {
-            color: #fff;
+
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
         }
-        a {
-            color: #007BFF;
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .benefits-list {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        footer {
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .footer-links {
+            color: #ffffff; /* Letras brancas no link */
             text-decoration: none;
         }
-        a:hover {
-            text-decoration: underline;
-        }
-        main {
-            padding: 20px;
+
+        .footer-links:hover {
+            color: #ff9d2f;
         }
 
-        img {
-            align-content: center;
-        }
-        /* Ajustes para dispositivos móveis */
-        @media (max-width: 768px) {
-            body {
-                background-position: 90% center; /* Desloca a imagem mais para a direita */
-                background-size: auto 100%; /* Ajusta a largura da imagem */
-            }
+        table {
+            width: 100%;
+            color: #ffffff; /* Letras brancas na tabela */
+            background-color: #333;
+            border-collapse: collapse;
         }
 
-        /* Ajustes para desktop */
-        @media (min-width: 769px) {
-            body {
-                background-position: center center; /* Mantém a imagem centralizada */
-                background-size: cover; /* A imagem cobre toda a tela */
-            }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #444;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Trige</h1>
-    </header>
-    <main>
-        <img src="trigue.jpg" alt="trigue" />
-    </main>
+
+<div class="background-image"></div>
+
+<header>
+    <h1>Café com Leite: Benefícios para a Saúde</h1>
+</header>
+
+<div class="content">
+    <p>O café com leite é uma bebida que promove diversos benefícios para a saúde, incluindo fortalecer o sistema imunológico, favorecer o ganho de massa muscular e ajudar na perda de peso.</p>
+    <p>Esses benefícios são possíveis devido à presença de cafeína e ácido clorogênico, que são compostos bioativos com ação antioxidante e anti-inflamatória no café, além de boas quantidades de proteínas e vitaminas no leite.</p>
+    <p>Acredita-se que a cafeína presente no café diminui a absorção de cálcio pelo organismo. No entanto, somente a ingestão excessiva de cafeína e a baixa ingestão de cálcio diário provocam a redução da absorção desse mineral.</p>
+
+    <div class="image-container">
+        <img src="image1.jpg" alt="Imagem ilustrativa número 1">
+    </div>
+
+    <h2>Principais Benefícios do Café com Leite</h2>
+    <ul class="benefits-list">
+        <li><strong>Fortalece o sistema imunológico:</strong> O leite é um alimento com ótimas quantidades de proteínas e vitamina A, importantes para a produção e renovação das células de defesa no organismo. A combinação do leite com o café, que possui polifenóis como ácido clorogênico, pode aumentar as propriedades anti-inflamatórias.</li>
+        <li><strong>Ajudar na perda de peso:</strong> O café com leite é digerido lentamente no estômago, controlando a fome e ajudando na perda de peso. Além disso, a cafeína tem ação termogênica, estimulando a queima de gordura.</li>
+        <li><strong>Promover o ganho de massa muscular:</strong> O leite contém proteínas de alto valor biológico, estimulando o crescimento dos músculos. O cálcio e o magnésio também ajudam na contração muscular e formação de tecido muscular.</li>
+        <li><strong>Melhorar a concentração:</strong> A cafeína aumenta a liberação de neurotransmissores como adrenalina, dopamina e serotonina, melhorando a concentração e diminuindo a sonolência.</li>
+        <li><strong>Prevenir a prisão de ventre:</strong> A cafeína aumenta a contração do estômago e intestino, estimulando a evacuação e prevenindo a prisão de ventre. O magnésio também tem ação laxante.</li>
+    </ul>
+
+    <h2>O Café com Leite Faz Mal?</h2>
+    <p>O consumo moderado de café com leite geralmente não faz mal, já que ele contém boas quantidades de proteínas, vitaminas e compostos bioativos com ação antioxidante e anti-inflamatória.</p>
+    <p>A cafeína no café pode diminuir a absorção de cálcio, mas isso só ocorre em caso de ingestão excessiva de cafeína e baixa ingestão de cálcio. Para não afetar a absorção de cálcio, recomenda-se consumir no máximo 400 mg de cafeína por dia (aproximadamente 600 ml de café coado).</p>
+
+    <h2>O Café com Leite Solta o Intestino?</h2>
+    <p>Sim, o café com leite pode soltar o intestino em algumas pessoas devido à cafeína, que aumenta a contração do intestino e estimula a evacuação. Além disso, pessoas com intolerância à lactose ou alergia à proteína do leite podem ter diarreia após consumir café com leite.</p>
+
+    <h2>Informação Nutricional</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Componente</th>
+                <th>1 xícara de chá (200 ml)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Energia</td><td>73 calorias</td></tr>
+            <tr><td>Proteínas</td><td>3,5 g</td></tr>
+            <tr><td>Gorduras</td><td>3,3 g</td></tr>
+            <tr><td>Carboidratos</td><td>7,2 g</td></tr>
+            <tr><td>Cálcio</td><td>109 mg</td></tr>
+            <tr><td>Cafeína</td><td>58 mg</td></tr>
+            <tr><td>Vitamina A</td><td>49,6 mcg</td></tr>
+            <tr><td>Potássio</td><td>257 mg</td></tr>
+            <tr><td>Magnésio</td><td>17,4 mg</td></tr>
+        </tbody>
+    </table>
+
+    <h2>Como Consumir</h2>
+    <p>O café com leite pode ser preparado com café solúvel ou em pó, e leite líquido ou em pó, nas versões integral, semidesnatada ou desnatada. Pode ser consumido quente ou gelado, em qualquer horário do dia.</p>
+
+    <h2>Quem Não Pode Tomar?</h2>
+    <p>Crianças com menos de 12 anos, pessoas com refluxo, úlceras, gastrite, síndrome do intestino irritável, intolerância à lactose, ou alergia à proteína do leite devem evitar o consumo de café com leite.</p>
+
+    <h2>Grávida Pode Tomar Café com Leite?</h2>
+    <p>A mulher grávida pode tomar café com leite em quantidades moderadas, não excedendo 200 mg de cafeína por dia (aproximadamente 340 ml de café coado por dia).</p>
+</div>
+
+<footer>
+    <p>&copy; 2025 Café com Leite - Todos os direitos reservados.</p>
+    <p><a class="footer-links" href="#">Leia mais sobre os benefícios do café</a></p>
+</footer>
+
 </body>
 </html>
