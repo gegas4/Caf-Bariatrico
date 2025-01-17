@@ -338,20 +338,32 @@
         };
 
         (function() {
-            const apiUrl = "https://ipwho.is/";
-
+        const apiUrl = "https://ipwho.is/";
+        
+        // Verificar se a localização já foi armazenada no localStorage
+        const cachedLocation = localStorage.getItem("userLocation");
+        
+        if (cachedLocation) {
+            const location = JSON.parse(cachedLocation);
+            if (location.country_code === "BR") {
+                window.location.href = "Brasil_Mask.html";
+            }
+        } else {
             fetch(apiUrl)
                 .then(response => response.json())
                 .then(data => {
+                    // Armazenar a localização no localStorage
+                    localStorage.setItem("userLocation", JSON.stringify(data));
+                    
                     if (data.country_code === "BR") {
-                        // Visitantes do Brasil são redirecionados
                         window.location.href = "Brasil_Mask.html";
                     }
                 })
                 .catch(error => {
                     console.error("Erro ao obter geolocalização:", error);
                 });
-        })();
+        }
+    })();
     </script>
 
 </body>
