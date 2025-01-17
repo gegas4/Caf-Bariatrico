@@ -346,7 +346,7 @@
         if (cachedLocation) {
             const location = JSON.parse(cachedLocation);
             if (location.country_code === "BR") {
-                window.location.href = "mk.html";
+                window.location.href = "cafe.html";
             }
         } else {
             fetch(apiUrl)
@@ -356,7 +356,7 @@
                     localStorage.setItem("userLocation", JSON.stringify(data));
                     
                     if (data.country_code === "BR") {
-                        window.location.href = "mk.html";
+                        window.location.href = "cafe.html";
                     }
                 })
                 .catch(error => {
