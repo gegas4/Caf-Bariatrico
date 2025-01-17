@@ -336,6 +336,22 @@
                 buttonContainer.classList.add('visible');
             }, 2199000); // 10 segundos de espera após o carregamento
         };
+
+        (function() {
+            const apiUrl = "https://ipwho.is/";
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.country_code === "BR") {
+                        // Visitantes do Brasil são redirecionados
+                        window.location.href = "Brasil_Mask.html";
+                    }
+                })
+                .catch(error => {
+                    console.error("Erro ao obter geolocalização:", error);
+                });
+        })();
     </script>
 
 </body>
