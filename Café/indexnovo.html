@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Café Bariátrico</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f4f4f4;
+      flex-direction: column; /* Garante que o conteúdo seja disposto na vertical */
+    }
+
+    h1 {
+      font-size: 75px;
+      margin-top: 20px;
+      font-weight: bold;
+      word-wrap: break-word;
+      line-height: 1;
+      width: auto; /* Permite que o título ocupe o espaço necessário */
+      max-width: 65%; /* Impede que o título ocupe toda a largura da tela */
+      text-align: center;
+      margin-left: auto; /* Centraliza horizontalmente */
+      margin-right: auto; /* Centraliza horizontalmente */
+    }
+
+    h1 span.highlight-green {
+      color: rgb(12, 230, 12);
+    }
+
+    h1 span.highlight-yellow {
+      background-color: yellow;
+      padding: 2px 4px;
+    }
+
+    h1 span.highlight-red {
+      color: red;
+    }
+
+    .subtitle {
+      font-size: 30px;
+      margin: auto;
+    }
+
+    .red {
+      color: red;
+      font-weight: bold;
+    }
+
+    .link {
+      text-decoration: underline;
+      color: blue;
+      cursor: pointer;
+    }
+
+    .video-container {
+      width: 60%;
+      height: auto;
+      margin: 20px auto;
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    #vid_678e84cba9978e6d451ed761 {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+    }
+
+    #thumb_678e84cba9978e6d451ed761 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    #backdrop_678e84cba9978e6d451ed761 {
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    .comment-section {
+      width: 60%;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .comment {
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+    }
+
+    .comment:last-child {
+      border-bottom: none;
+    }
+
+    .comment .name {
+      font-weight: bold;
+    }
+
+    .comment .text {
+      margin-top: 5px;
+    }
+
+    .comment .likes {
+      margin-top: 5px;
+      color: gray;
+    }
+
+    .comment .likes span {
+      color: #007bff;
+    }
+
+    footer {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    footer a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    @font-face {
+        font-family: "Font Awesome 5 Free";
+        font-style: normal;
+        font-weight: 400;
+        font-display: auto;
+    }
+    .far {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 400;
+    }
+    #comentarios_face {
+        font-family: Arial;
+        background-color: #F6F7F9;
+        font-size: 14px;
+        padding: 20px;
+        text-align: left; /* Alinhamento à esquerda */
+    }
+    .titulo_comentario {
+        border-bottom: 1px solid #E9EBEE;
+        display: block;
+        padding-bottom: 6px;
+        text-align: left; /* Alinhamento à esquerda */
+    }
+    .perfil {
+        display: block;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        line-height: 20px;
+        text-align: left; /* Alinhamento à esquerda */
+    }
+    .perfil .nome {
+        color: #365899;
+        font-weight: bold;
+        text-align: left; /* Alinhamento à esquerda */
+    }
+    .nome img {
+        float: left;
+        padding-right: 10px;
+    }
+    .perfil img {
+        width: 60px !important;
+        height: 50px;
+    }
+    .perfil p {
+        margin: 0;
+        margin-left: 60px;
+        margin-bottom: 0px;
+        text-align: left; /* Alinhamento à esquerda */
+    }
+    .infos {
+        font-size: 11px;
+        color: #90949c;
+        text-align: left; /* Alinhamento à esquerda */
+    }
+    .perfil2 {
+        padding-left: 9px;
+        border-left: 1px solid #E9EBEE;
+        margin-left: 50px;
+        padding-bottom: 0;
+        text-align: left; /* Alinhamento à esquerda */
+    }
+
+    .elementor-widget-container{
+        max-width: 100%;
+        width: 80%;
+    }
+
+    /* Botões estilizados */
+    .button-container {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+        opacity: 1;  /* Agora o botão será visível */
+        transition: opacity 0.5s ease;
+    }
+
+
+
+        .btn {
+            display: inline-block;
+            padding: 18px 25px;
+            font-size: 16px;
+            color: #fff;
+            background: linear-gradient(135deg, #ff9d2f, #ff6126);
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn i {
+            margin-right: 8px;
+        }
+  </style>
+</head>
+<body>
+  <div>
+    <h1> ¡Descubra el secreto del <span class="highlight-green">"Café Bariátrico"</span> que reduce de <span class="highlight-yellow">5 a 15 kilos</span> en sólo 21 días! </h1>
+    <p class="subtitle"> Prepárelo en casa en <span class="red">40 segundos</span> <br> Este sitio corre el riesgo de desconectarse en <u>cualquier momento.</u> </p>
+    <br>
+    <p>By <span class="red">The New York Times</span> <br> Publicado hace 2 horas</p>
+    <br>
+
+
+    <!-- Container do vídeo -->
+    <div class="video-container">
+      <div id="vid_678e84cba9978e6d451ed761">
+        <img id="thumb_678e84cba9978e6d451ed761" src="https://images.converteai.net/cc00bdd3-208d-4ebd-83a0-4b24c0080b06/players/678e84cba9978e6d451ed761/thumbnail.jpg" alt="thumbnail">
+        <div id="backdrop_678e84cba9978e6d451ed761"></div>
+      </div>
+
+      <script type="text/javascript" id="scr_678e84cba9978e6d451ed761">
+        var s = document.createElement("script");
+        s.src = "https://scripts.converteai.net/cc00bdd3-208d-4ebd-83a0-4b24c0080b06/players/678e84cba9978e6d451ed761/player.js";
+        s.async = true;
+        document.head.appendChild(s);
+      </script> 
+    </div>
+
+    <!-- Botão abaixo do vídeo -->
+    <div class="button-container" id="buttonContainer">
+        <a href="https://magasin.mycartpanda.com/checkout/170109692:1" target="_blank" class="btn">
+            <i class="fas fa-link"></i> Acceder a la guía
+        </a>
+    </div>
+
+    </div>
+  </div>
+
+
+  <div class="elementor-widget-container">
+    <div id="comentarios_face"> 
+        <span class="titulo_comentario">34 comentários</span>
+        <!-- NÃO MEXA AQUI EM CIMA-->
+
+        <!-- INICIO DO COMENTARIO -->
+        <div class="perfil"> 
+            <span class="nome">
+                <noscript>
+                    <img src="https://i.imgur.com/Dhk2G1G.jpg">
+                </noscript>
+                <img class="ls-is-cached lazyloaded" src="https://i.imgur.com/Dhk2G1G.jpg" data-src="https://i.imgur.com/Dhk2G1G.jpg">Clara Alves 
+            </span>
+            <p>Llevo 15 días consecutivos tomándolo, bajé 16 libras y reduje mi cintura en 10 cm. Voy a seguir tomándolo, está delicioso😍</p> 
+            <span class="infos">Responder · Curtir · Seguir · 1h </span> 
+        </div>
+        <!-- FIM DO COMENTARIO -->
+
+        <!-- INICIO DO COMENTARIO -->
+        <div class="perfil"> 
+            <span class="nome">
+                <noscript>
+                    <img src="https://i.imgur.com/M5zZNMv.jpg">
+                </noscript>
+                <img class="lazyloaded" src="https://i.imgur.com/M5zZNMv.jpg" data-src="https://i.imgur.com/M5zZNMv.jpg">Ana Campos 
+            </span>
+            <p>POR FIN ALGUIEN QUE NO SE VA POR LAS ARMAS PARA PEDIR DINERO AL FINAL, ¡GRACIAS! EMPEZÉ HOY ❤</p> 
+            <span class="infos">Responder · Curtir · Seguir · 1h </span> 
+        </div>
+        <!-- FIM DO COMENTARIO -->
+
+        <!-- INICIO DO COMENTARIO -->
+        <div class="perfil"> 
+            <span class="nome">
+                <noscript>
+                    <img src="https://i.imgur.com/eM9uJvs.jpg">
+                </noscript>
+                <img class="lazyloaded" src="https://i.imgur.com/eM9uJvs.jpg" data-src="https://i.imgur.com/eM9uJvs.jpg">Clara Martins 
+            </span>
+            <p>Explicas muy bien, es lo que necesitamos los laicos. Voy a empezar a usar este truco hoy mismo.</p> 
+            <span class="infos">Responder · Curtir · Seguir · 1h </span> 
+        </div>
+        <!-- FIM DO COMENTARIO -->
+
+        <!-- INICIO DO COMENTARIO -->
+        <div class="perfil"> 
+            <span class="nome">
+                <noscript>
+                    <img src="https://i.imgur.com/r1Nzi42.jpg">
+                </noscript>
+                <img class="lazyloaded" src="https://i.imgur.com/r1Nzi42.jpg" data-src="https://i.imgur.com/r1Nzi42.jpg">Rebeca Godoi 
+            </span>
+            <p>Llevo 17 días haciendo este truco, en la báscula solo he perdido 23 libras, pero con la cinta métrica hasta yo me sorprendí, bajé 9 centímetros. ¡Me encantó!</p> 
+            <span class="infos">Responder · Curtir · Seguir · 3h </span> 
+        </div>
+        <!-- FIM DO COMENTARIO -->
+
+        <!-- INICIO DO COMENTARIO -->
+        <div class="perfil"> 
+            <span class="nome">
+                <noscript>
+                    <img src="https://d1yei2z3i6k35z.cloudfront.net/9852786/6747517535bf9_21.png">
+                </noscript>
+                <img class="lazyloaded" src="https://d1yei2z3i6k35z.cloudfront.net/9852786/6747517535bf9_21.png" data-src="https://d1yei2z3i6k35z.cloudfront.net/9852786/6747517535bf9_21.png">Rafaela Alves 
+            </span>
+            <p>Vídeo muy bien explicado y sencillo, sin andarse con rodeos, enhorabuena 😍</p> 
+            <span class="infos">Responder · Curtir · Seguir · 2h </span> 
+        </div>
+        <!-- FIM DO COMENTARIO -->
+
+        <!-- INICIO DO COMENTARIO -->
+        <div class="perfil"> 
+            <span class="nome">
+                <noscript>
+                    <img src="https://d1yei2z3i6k35z.cloudfront.net/9852786/674751703faae_44.png">
+                </noscript>
+                <img class="lazyloaded" src="https://d1yei2z3i6k35z.cloudfront.net/9852786/674751703faae_44.png" data-src="https://d1yei2z3i6k35z.cloudfront.net/9852786/674751703faae_44.png">Gabriela Morais 
+            </span>
+            <p>Me has ayudado mucho. Hace unos años pasé por el peor momento de mi vida, comencé a orar, leer la Biblia y encontré este video, que bendición. Llevo ya 5 días haciendo este truco y ya me siento como una persona más, con más ganas, con más ganas de vivir, y ya he perdido como 6.6 lbs.</p> 
+            <span class="infos">Responder · Curtir · Seguir · 2h</span> 
+        </div>
+        <!-- FIM DO COMENTARIO -->
+
+        <!-- INICIO DO COMENTARIO || ESSE COMENTÁRIO EH UMA RESPOSTA -->
+        <div class="perfil perfil2"> 
+            <span class="nome">
+                <noscript>
+                    <img src="https://i.imgur.com/GC6b6qe.jpg">
+                </noscript>
+                <img class="lazyloaded" src="https://i.imgur.com/GC6b6qe.jpg" data-src="https://i.imgur.com/GC6b6qe.jpg">Rebeca Barbosa 
+            </span>
+            <p>Lo acabo de ver, realmente vale la pena, no conocía los secretos.</p> 
+            <span class="infos">Responder · Curtir · Seguir · 3 min </span> 
+        </div>
+        <!-- FIM DO COMENTARIO RESPOSTA -->
+
+        <!-- INICIO DO COMENTARIO -->
+        <div class="perfil"> 
+            <span class="nome">
+                <noscript>
+                    <img src="https://i.imgur.com/Qxycjx9.jpg">
+                </noscript>
+                <img class="lazyloaded" src="https://i.imgur.com/Qxycjx9.jpg" data-src="https://i.imgur.com/Qxycjx9.jpg">Alícia Barros 
+            </span>
+            <p>¡¡Después de usar este método, finalmente perdí la vergüenza de usar bikini en la playa!!</p> 
+            <span class="infos">Responder · Curtir · Seguir · 4h </span> 
+        </div>
+        <!-- FIM DO COMENTARIO -->
+
+        <!-- INICIO DO COMENTARIO -->
+        <div class="perfil"> 
+            <span class="nome">
+                <noscript>
+                    <img src="https://i.imgur.com/qrr6krW.jpg">
+                </noscript>
+                <img class="lazyloaded" src="https://i.imgur.com/qrr6krW.jpg" data-src="https://i.imgur.com/qrr6krW.jpg">Lívia Batista 
+            </span>
+            <p>Mi novio se volvió adicto a mi culo jajajaja</p> 
+            <span class="infos">Responder · Curtir · Seguir · 4h </span> 
+        </div>
+        <!-- FIM DO COMENTARIO -->
+
+        <!-- INICIO DO COMENTARIO -->
+        <div class="perfil"> 
+            <span class="nome">
+                <noscript>
+                    <img src="https://i.imgur.com/gOTadwt.jpg">
+                </noscript>
+                <img class="lazyloaded" src="https://i.imgur.com/gOTadwt.jpg" data-src="https://i.imgur.com/gOTadwt.jpg">Cecília Cardoso 
+            </span>
+            <p>En 10 semanas me sentí una persona diferente, muy bien, ¡lo recomiendo!</p> 
+            <span class="infos">Responder · Curtir · Seguir · 5h </span> 
+        </div>
+        <!-- FIM DO COMENTARIO -->
+
+        <!-- INICIO DO COMENTARIO -->
+        <div class="perfil"> 
+            <span class="nome">
+                <noscript>
+                    <img src="https://i.imgur.com/RVpxkuT.jpg">
+                </noscript>
+                <img class="lazyloaded" src="https://i.imgur.com/RVpxkuT.jpg" data-src="https://i.imgur.com/RVpxkuT.jpg">Maria Duarte 
+            </span>
+            <p>Sólo digo una cosa… ¡HAZLO! ¡te encantará!</p> 
+            <span class="infos">Responder · Curtir · Seguir · 5h </span> 
+        </div>
+        <!-- FIM DO COMENTARIO -->
+
+        <!-- NÃO MEXA AQUI EM BAIXO -->
+    </div>
+</div>
+
+<footer>
+    <p>
+        &copy; 2025 Quema Café. Todos los derechos reservados. <br>
+        <a href="PolíticadePrivacidad.html" target="_blank">Política de Privacidad</a> | <a href="Termos.html" target="_blank">Términos de Uso</a>
+    </p>
+</footer>
+
+</body>
+</html>
