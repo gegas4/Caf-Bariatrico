@@ -1,106 +1,228 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quema Café</title>
-    <!-- Link para o Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        /* Reset e Configurações Globais */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Café Bariátrico</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f4f4f4;
+      flex-direction: column; /* Garante que o conteúdo seja disposto na vertical */
+    }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            text-align: center;
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            margin: 0;
-            position: relative;
-        }
+    h1 {
+      font-size: 75px;
+      margin-top: 20px;
+      font-weight: bold;
+      word-wrap: break-word;
+      line-height: 1;
+      width: auto; /* Permite que o título ocupe o espaço necessário */
+      max-width: 65%; /* Impede que o título ocupe toda a largura da tela */
+      text-align: center;
+      margin-left: auto; /* Centraliza horizontalmente */
+      margin-right: auto; /* Centraliza horizontalmente */
+    }
 
-        /* Imagem de fundo fixa */
-        .background-image {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url("coffee-background-pulyf4svn5bnfs7b.jpg");
-            background-size: cover;
-            background-position: center;
-            filter: blur(6px);
-            z-index: -2;
-        }
+    h1 span.highlight-green {
+      color: rgb(12, 230, 12);
+    }
 
-        /* Camada semi-transparente */
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: -1;
-        }
+    h1 span.highlight-yellow {
+      background-color: yellow;
+      padding: 2px 4px;
+    }
 
-        /* Container principal */
-        .container {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            flex: 1;
-            padding: 20px;
-        }
+    h1 span.highlight-red {
+      color: red;
+    }
 
-        h1 {
-            font-size: 30px;
-            line-height: 1.4;
-            text-align: center;
-            color: #fff;
-            max-width: 80%;
-            margin: 0 auto;
-        }
+    .subtitle {
+      font-size: 30px;
+      margin: auto;
+    }
 
-        h1 .highlight {
-            font-size: 38px;
-            font-weight: bolder;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-top: 10px;
-            color: #ff9d2f;
-        }
+    .red {
+      color: red;
+      font-weight: bold;
+    }
 
-        /* Botões estilizados */
-        .button-container {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.5s ease;
-        }
+    .link {
+      text-decoration: underline;
+      color: blue;
+      cursor: pointer;
+    }
 
-        .button-container.visible {
-            opacity: 1;
-            visibility: visible;
-        }
+    .video-container {
+      width: 60%;
+      height: auto;
+      margin: 20px auto;
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+    }
+
+    #vid_678e84cba9978e6d451ed761 {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+    }
+
+    #thumb_678e84cba9978e6d451ed761 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    #backdrop_678e84cba9978e6d451ed761 {
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 100%;
+    }
+
+    .comment-section {
+      width: 60%;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .comment {
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+    }
+
+    .comment:last-child {
+      border-bottom: none;
+    }
+
+    .comment .name {
+      font-weight: bold;
+    }
+
+    .comment .text {
+      margin-top: 5px;
+    }
+
+    .comment .likes {
+      margin-top: 5px;
+      color: gray;
+    }
+
+    .comment .likes span {
+      color: #007bff;
+    }
+
+    footer {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 12px;
+      color: #aaa;
+    }
+
+    footer a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    @font-face {
+        font-family: "Font Awesome 5 Free";
+        font-style: normal;
+        font-weight: 400;
+        font-display: auto;
+    }
+    .far {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 400;
+    }
+    #comentarios_face {
+        font-family: Arial;
+        background-color: #F6F7F9;
+        font-size: 14px;
+        padding: 20px;
+        text-align: left; /* Alinhamento à esquerda */
+    }
+    .titulo_comentario {
+        border-bottom: 1px solid #E9EBEE;
+        display: block;
+        padding-bottom: 6px;
+        text-align: left; /* Alinhamento à esquerda */
+    }
+    .perfil {
+        display: block;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        line-height: 20px;
+        text-align: left; /* Alinhamento à esquerda */
+    }
+    .perfil .nome {
+        color: #365899;
+        font-weight: bold;
+        text-align: left; /* Alinhamento à esquerda */
+    }
+    .nome img {
+        float: left;
+        padding-right: 10px;
+    }
+    .perfil img {
+        width: 60px !important;
+        height: 50px;
+    }
+    .perfil p {
+        margin: 0;
+        margin-left: 60px;
+        margin-bottom: 0px;
+        text-align: left; /* Alinhamento à esquerda */
+    }
+    .infos {
+        font-size: 11px;
+        color: #90949c;
+        text-align: left; /* Alinhamento à esquerda */
+    }
+    .perfil2 {
+        padding-left: 9px;
+        border-left: 1px solid #E9EBEE;
+        margin-left: 50px;
+        padding-bottom: 0;
+        text-align: left; /* Alinhamento à esquerda */
+    }
+
+    .elementor-widget-container{
+        max-width: 100%;
+        width: 80%;
+    }
+
+    /* Botões estilizados */
+    .button-container {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+        opacity: 1;  /* Agora o botão será visível */
+        transition: opacity 0.5s ease;
+    }
+
+
 
         .btn {
             display: inline-block;
-            padding: 12px 25px;
+            padding: 18px 25px;
             font-size: 16px;
             color: #fff;
             background: linear-gradient(135deg, #ff9d2f, #ff6126);
@@ -118,253 +240,201 @@
         .btn i {
             margin-right: 8px;
         }
-
-        footer {
-            background-color: transparent;
-            text-align: center;
-            padding: 20px;
-            font-size: 14px;
-            line-height: 1.6;
-            flex-shrink: 0;
-            margin-top: auto;
-        }
-
-        footer a {
-            color: #ff9d2f;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        footer a:hover {
-            color: #ff6126;
-        }
-
-        .social-links a {
-            color: #fff;
-            font-size: 18px;
-            margin: 0 10px;
-        }
-
-        .social-links a:hover {
-            color: #ff9d2f;
-            transform: scale(1.2);
-        }
-
-        /* Ajustando o vídeo para ficar com largura máxima de 50% */
-        .video-container {
-            width: 100%;
-            height: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            border-radius: 15px; /* Adiciona borda curva ao contêiner do vídeo */
-            overflow: hidden; /* Garante que a borda curva seja aplicada corretamente */
-        }
-
-        #vid_6779568fe627203791e9d90d {
-            width: 100%;
-            height: auto;
-            border-radius: 15px; /* Borda curva no próprio vídeo */
-        }
-
-        /* Responsividade com limite de duas linhas */
-        @media (max-width: 850px) {
-            h1 {
-                font-size: 20px;
-                line-height: 1.4;
-                text-align: center;
-                width: calc(100% - 0px);
-                margin: 0 auto;
-                margin-top: -30%;
-                color: #fff;
-                display: -webkit-box;
-                -webkit-line-clamp: 3;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-
-            h1 .highlight {
-                font-size: 26px;
-                font-weight: bolder;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                margin-top: 0px;
-                color: #ff9d2f;
-                display: inline-block;
-            }
-
-            video {
-                align-items: center;
-                width: calc(100% - 30px);
-            }
-
-            .background-image {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-image: url("coffee-background-pulyf4svn5bnfs7b.jpg");
-                background-size: cover;
-                background-position: 80% center; /* Move a imagem para a esquerda */
-                filter: blur(6px);
-                z-index: -2;
-        }
-        }
-
-        @media (max-width: 933px) and (orientation: landscape) {
-    body {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        overflow-y: auto; /* Permite rolar verticalmente */
-        position: relative; /* Necessário para o posicionamento absoluto do footer */
-        padding-bottom: 50px; /* Espaço para garantir que o footer não seja escondido */
-    }
-
-    .container {
-        max-width: 90vw; /* Limita a largura máxima do conteúdo */
-        max-height: 190vh; /* Limita a altura máxima do conteúdo */
-        padding: 10px;
-    }
-
-    h1 {
-        font-size: 10px;
-        line-height: 1.2;
-        margin-top: -50px; /* Reduzido para diminuir o espaço */
-        max-width: 100%; /* Garante que o título não extrapole a largura da tela */
-    }
-
-    h1 .highlight {
-        font-size: 15px;
-    }
-
-    .video-container {
-        width: 40vw; /* Garante que o contêiner ocupe toda a largura da tela */
-        height: 50vh; /* Garante que o contêiner ocupe toda a altura da tela */
-        display: flex;
-        justify-content: center; /* Centraliza o vídeo horizontalmente */
-        align-items: center; /* Centraliza o vídeo verticalmente */
-        margin-top: -20px;
-        border-radius: 15px;
-    }
-
-    video {
-        width: 70%; /* Define a largura do vídeo como 70% da tela */
-        height: auto; /* Mantém a proporção correta do vídeo */
-        border-radius: 15px;
-    }
-
-    .button-container {
-        flex-wrap: wrap;
-        gap: 5px; /* Ajustado para diminuir o espaço entre os botões */
-        margin-top: -20px; /* Diminui o espaço acima dos botões */
-    }
-
-    .btn {
-        padding: 5px 12px; /* Reduzido para tornar o botão menor */
-        font-size: 10px; /* Tamanho da fonte do botão ajustado */
-    }
-
-    footer {
-        font-size: 7px;
-        position: absolute; /* Coloca o footer na parte inferior da tela */
-        bottom: 0; /* Garante que o footer fique no final da tela */
-        width: 100%; /* Faz com que o footer ocupe toda a largura */
-        text-align: center; /* Alinha o conteúdo do footer ao centro */
-        padding: 10px 0; /* Adiciona um pouco de espaçamento ao redor do footer */
-        margin-top: 0px; /* Mantém o espaçamento para o footer */
-    }
-}
-
-
-
-    </style>
+  </style>
 </head>
 <body>
+  <div>
+    <h1> ¡Descubra el secreto del <span class="highlight-green">"Café Bariátrico"</span> que reduce de <span class="highlight-yellow">5 a 15 kilos</span> en sólo 21 días! </h1>
+    <p class="subtitle"> Prepárelo en casa en <span class="red">40 segundos</span> <br> Este sitio corre el riesgo de desconectarse en <u>cualquier momento.</u> </p>
+    <br>
+    <p>By <span class="red">The New York Times</span> <br> Publicado hace 2 horas</p>
+    <br>
 
-    <!-- Imagem de fundo fixa -->
-    <div class="background-image"></div>
 
-    <!-- Overlay -->
-    <div class="overlay"></div>
+    <!-- Container do vídeo -->
+    <div class="video-container">
+      <div id="vid_678e84cba9978e6d451ed761">
+        <img id="thumb_678e84cba9978e6d451ed761" src="https://images.converteai.net/cc00bdd3-208d-4ebd-83a0-4b24c0080b06/players/678e84cba9978e6d451ed761/thumbnail.jpg" alt="thumbnail">
+        <div id="backdrop_678e84cba9978e6d451ed761"></div>
+      </div>
 
-    <!-- Conteúdo principal -->
-    <div class="container">
-        <h1>
-            Descubra por qué este café se hizo conocido como
-            <br>
-            <span class="highlight">"Café bariátrico"</span>
-        </h1>
-        <br>
-        <!-- Novo vídeo ajustado para ficar com largura máxima de 50% -->
-        <div class="video-container">
-                <div id="vid_67803398d2d01c85b4adef54" style="position: relative; width: 100%; padding: 56.25% 0 0;"> 
-                    <img id="thumb_67803398d2d01c85b4adef54" src="https://images.converteai.net/cc00bdd3-208d-4ebd-83a0-4b24c0080b06/players/67803398d2d01c85b4adef54/thumbnail.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;" alt="thumbnail"> 
-                    <div id="backdrop_67803398d2d01c85b4adef54" style=" -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); position: absolute; top: 0; height: 100%; width: 100%; "></div> 
-                    </div> 
-                    <script type="text/javascript" id="scr_67803398d2d01c85b4adef54"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/cc00bdd3-208d-4ebd-83a0-4b24c0080b06/players/67803398d2d01c85b4adef54/player.js", s.async=!0,document.head.appendChild(s); </script>
-                    <style> .elementor-element:has(#smartplayer) { width: 100%; } </style>    
-                </div>
-        <br>
-        <!-- Botão -->
-        <div class="button-container" id="buttonContainer">
-            <a href="https://magasin.mycartpanda.com/checkout/170109692:1" target="_blank" class="btn">
-                <i class="fas fa-link"></i> Acceder a la guía
-            </a>
-        </div>
+      <script type="text/javascript" id="scr_678e84cba9978e6d451ed761">
+        var s = document.createElement("script");
+        s.src = "https://scripts.converteai.net/cc00bdd3-208d-4ebd-83a0-4b24c0080b06/players/678e84cba9978e6d451ed761/player.js";
+        s.async = true;
+        document.head.appendChild(s);
+      </script> 
     </div>
 
-    <!-- Rodapé -->
-    <footer>
-        <p>
-            &copy; 2025 Quema Café. Todos los derechos reservados. <br>
-            <a href="PolíticadePrivacidad.html" target="_blank">Política de Privacidad</a> | <a href="Termos.html" target="_blank">Términos de Uso</a>
-        </p>
-    </footer>
+    <!-- Botão abaixo do vídeo -->
+    <div class="button-container" id="buttonContainer">
+        <a href="https://magasin.mycartpanda.com/checkout/170109692:1" target="_blank" class="btn">
+            <i class="fas fa-link"></i> Acceder a la guía
+        </a>
+    </div>
 
-    <!-- Script para exibir o botão após 10 segundos do carregamento da página -->
-    <script>
-        // Aguardar o carregamento da página
-        window.onload = function() {
-            var buttonContainer = document.getElementById('buttonContainer');
+    </div>
+  </div>
 
-            // Espera 10 segundos após o carregamento da página para mostrar o botão
-            setTimeout(function() {
-                buttonContainer.classList.add('visible');
-            }, 2199000); // 10 segundos de espera após o carregamento
-        };
 
-        (function() {
-        const apiUrl = "https://ipwho.is/";
-        
-        // Verificar se a localização já foi armazenada no localStorage
-        const cachedLocation = localStorage.getItem("userLocation");
-        
-        if (cachedLocation) {
-            const location = JSON.parse(cachedLocation);
-            if (location.country_code === "BR") {
-                window.location.href = "cafe.html";
-            }
-        } else {
-            fetch(apiUrl)
-                .then(response => response.json())
-                .then(data => {
-                    // Armazenar a localização no localStorage
-                    localStorage.setItem("userLocation", JSON.stringify(data));
-                    
-                    if (data.country_code === "BR") {
-                        window.location.href = "cafe.html";
-                    }
-                })
-                .catch(error => {
-                    console.error("Erro ao obter geolocalização:", error);
-                });
-        }
-    })();
-    </script>
+  <div class="elementor-widget-container">
+    <div id="comentarios_face"> 
+        <span class="titulo_comentario">34 comentários</span>
+        <!-- NÃO MEXA AQUI EM CIMA-->
+
+        <!-- INICIO DO COMENTARIO -->
+        <div class="perfil"> 
+            <span class="nome">
+                <noscript>
+                    <img src="https://i.imgur.com/Dhk2G1G.jpg">
+                </noscript>
+                <img class="ls-is-cached lazyloaded" src="https://i.imgur.com/Dhk2G1G.jpg" data-src="https://i.imgur.com/Dhk2G1G.jpg">Clara Alves 
+            </span>
+            <p>Llevo 15 días consecutivos tomándolo, bajé 16 libras y reduje mi cintura en 10 cm. Voy a seguir tomándolo, está delicioso😍</p> 
+            <span class="infos">Responder · Curtir · Seguir · 1h </span> 
+        </div>
+        <!-- FIM DO COMENTARIO -->
+
+        <!-- INICIO DO COMENTARIO -->
+        <div class="perfil"> 
+            <span class="nome">
+                <noscript>
+                    <img src="https://i.imgur.com/M5zZNMv.jpg">
+                </noscript>
+                <img class="lazyloaded" src="https://i.imgur.com/M5zZNMv.jpg" data-src="https://i.imgur.com/M5zZNMv.jpg">Ana Campos 
+            </span>
+            <p>POR FIN ALGUIEN QUE NO SE VA POR LAS ARMAS PARA PEDIR DINERO AL FINAL, ¡GRACIAS! EMPEZÉ HOY ❤</p> 
+            <span class="infos">Responder · Curtir · Seguir · 1h </span> 
+        </div>
+        <!-- FIM DO COMENTARIO -->
+
+        <!-- INICIO DO COMENTARIO -->
+        <div class="perfil"> 
+            <span class="nome">
+                <noscript>
+                    <img src="https://i.imgur.com/eM9uJvs.jpg">
+                </noscript>
+                <img class="lazyloaded" src="https://i.imgur.com/eM9uJvs.jpg" data-src="https://i.imgur.com/eM9uJvs.jpg">Clara Martins 
+            </span>
+            <p>Explicas muy bien, es lo que necesitamos los laicos. Voy a empezar a usar este truco hoy mismo.</p> 
+            <span class="infos">Responder · Curtir · Seguir · 1h </span> 
+        </div>
+        <!-- FIM DO COMENTARIO -->
+
+        <!-- INICIO DO COMENTARIO -->
+        <div class="perfil"> 
+            <span class="nome">
+                <noscript>
+                    <img src="https://i.imgur.com/r1Nzi42.jpg">
+                </noscript>
+                <img class="lazyloaded" src="https://i.imgur.com/r1Nzi42.jpg" data-src="https://i.imgur.com/r1Nzi42.jpg">Rebeca Godoi 
+            </span>
+            <p>Llevo 17 días haciendo este truco, en la báscula solo he perdido 23 libras, pero con la cinta métrica hasta yo me sorprendí, bajé 9 centímetros. ¡Me encantó!</p> 
+            <span class="infos">Responder · Curtir · Seguir · 3h </span> 
+        </div>
+        <!-- FIM DO COMENTARIO -->
+
+        <!-- INICIO DO COMENTARIO -->
+        <div class="perfil"> 
+            <span class="nome">
+                <noscript>
+                    <img src="https://d1yei2z3i6k35z.cloudfront.net/9852786/6747517535bf9_21.png">
+                </noscript>
+                <img class="lazyloaded" src="https://d1yei2z3i6k35z.cloudfront.net/9852786/6747517535bf9_21.png" data-src="https://d1yei2z3i6k35z.cloudfront.net/9852786/6747517535bf9_21.png">Rafaela Alves 
+            </span>
+            <p>Vídeo muy bien explicado y sencillo, sin andarse con rodeos, enhorabuena 😍</p> 
+            <span class="infos">Responder · Curtir · Seguir · 2h </span> 
+        </div>
+        <!-- FIM DO COMENTARIO -->
+
+        <!-- INICIO DO COMENTARIO -->
+        <div class="perfil"> 
+            <span class="nome">
+                <noscript>
+                    <img src="https://d1yei2z3i6k35z.cloudfront.net/9852786/674751703faae_44.png">
+                </noscript>
+                <img class="lazyloaded" src="https://d1yei2z3i6k35z.cloudfront.net/9852786/674751703faae_44.png" data-src="https://d1yei2z3i6k35z.cloudfront.net/9852786/674751703faae_44.png">Gabriela Morais 
+            </span>
+            <p>Me has ayudado mucho. Hace unos años pasé por el peor momento de mi vida, comencé a orar, leer la Biblia y encontré este video, que bendición. Llevo ya 5 días haciendo este truco y ya me siento como una persona más, con más ganas, con más ganas de vivir, y ya he perdido como 6.6 lbs.</p> 
+            <span class="infos">Responder · Curtir · Seguir · 2h</span> 
+        </div>
+        <!-- FIM DO COMENTARIO -->
+
+        <!-- INICIO DO COMENTARIO || ESSE COMENTÁRIO EH UMA RESPOSTA -->
+        <div class="perfil perfil2"> 
+            <span class="nome">
+                <noscript>
+                    <img src="https://i.imgur.com/GC6b6qe.jpg">
+                </noscript>
+                <img class="lazyloaded" src="https://i.imgur.com/GC6b6qe.jpg" data-src="https://i.imgur.com/GC6b6qe.jpg">Rebeca Barbosa 
+            </span>
+            <p>Lo acabo de ver, realmente vale la pena, no conocía los secretos.</p> 
+            <span class="infos">Responder · Curtir · Seguir · 3 min </span> 
+        </div>
+        <!-- FIM DO COMENTARIO RESPOSTA -->
+
+        <!-- INICIO DO COMENTARIO -->
+        <div class="perfil"> 
+            <span class="nome">
+                <noscript>
+                    <img src="https://i.imgur.com/Qxycjx9.jpg">
+                </noscript>
+                <img class="lazyloaded" src="https://i.imgur.com/Qxycjx9.jpg" data-src="https://i.imgur.com/Qxycjx9.jpg">Alícia Barros 
+            </span>
+            <p>¡¡Después de usar este método, finalmente perdí la vergüenza de usar bikini en la playa!!</p> 
+            <span class="infos">Responder · Curtir · Seguir · 4h </span> 
+        </div>
+        <!-- FIM DO COMENTARIO -->
+
+        <!-- INICIO DO COMENTARIO -->
+        <div class="perfil"> 
+            <span class="nome">
+                <noscript>
+                    <img src="https://i.imgur.com/qrr6krW.jpg">
+                </noscript>
+                <img class="lazyloaded" src="https://i.imgur.com/qrr6krW.jpg" data-src="https://i.imgur.com/qrr6krW.jpg">Lívia Batista 
+            </span>
+            <p>Mi novio se volvió adicto a mi culo jajajaja</p> 
+            <span class="infos">Responder · Curtir · Seguir · 4h </span> 
+        </div>
+        <!-- FIM DO COMENTARIO -->
+
+        <!-- INICIO DO COMENTARIO -->
+        <div class="perfil"> 
+            <span class="nome">
+                <noscript>
+                    <img src="https://i.imgur.com/gOTadwt.jpg">
+                </noscript>
+                <img class="lazyloaded" src="https://i.imgur.com/gOTadwt.jpg" data-src="https://i.imgur.com/gOTadwt.jpg">Cecília Cardoso 
+            </span>
+            <p>En 10 semanas me sentí una persona diferente, muy bien, ¡lo recomiendo!</p> 
+            <span class="infos">Responder · Curtir · Seguir · 5h </span> 
+        </div>
+        <!-- FIM DO COMENTARIO -->
+
+        <!-- INICIO DO COMENTARIO -->
+        <div class="perfil"> 
+            <span class="nome">
+                <noscript>
+                    <img src="https://i.imgur.com/RVpxkuT.jpg">
+                </noscript>
+                <img class="lazyloaded" src="https://i.imgur.com/RVpxkuT.jpg" data-src="https://i.imgur.com/RVpxkuT.jpg">Maria Duarte 
+            </span>
+            <p>Sólo digo una cosa… ¡HAZLO! ¡te encantará!</p> 
+            <span class="infos">Responder · Curtir · Seguir · 5h </span> 
+        </div>
+        <!-- FIM DO COMENTARIO -->
+
+        <!-- NÃO MEXA AQUI EM BAIXO -->
+    </div>
+</div>
+
+<footer>
+    <p>
+        &copy; 2025 Quema Café. Todos los derechos reservados. <br>
+        <a href="PolíticadePrivacidad.html" target="_blank">Política de Privacidad</a> | <a href="Termos.html" target="_blank">Términos de Uso</a>
+    </p>
+</footer>
 
 </body>
 </html>

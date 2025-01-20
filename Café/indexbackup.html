@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quema Café</title>
+    <!-- Link para o Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset e Configurações Globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            position: relative;
+        }
+
+        /* Imagem de fundo fixa */
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("coffee-background-pulyf4svn5bnfs7b.jpg");
+            background-size: cover;
+            background-position: center;
+            filter: blur(6px);
+            z-index: -2;
+        }
+
+        /* Camada semi-transparente */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+
+        /* Container principal */
+        .container {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 30px;
+            line-height: 1.4;
+            text-align: center;
+            color: #fff;
+            max-width: 80%;
+            margin: 0 auto;
+        }
+
+        h1 .highlight {
+            font-size: 38px;
+            font-weight: bolder;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 10px;
+            color: #ff9d2f;
+        }
+
+        /* Botões estilizados */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease;
+        }
+
+        .button-container.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            font-size: 16px;
+            color: #fff;
+            background: linear-gradient(135deg, #ff9d2f, #ff6126);
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .btn i {
+            margin-right: 8px;
+        }
+
+        footer {
+            background-color: transparent;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+            flex-shrink: 0;
+            margin-top: auto;
+        }
+
+        footer a {
+            color: #ff9d2f;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #ff6126;
+        }
+
+        .social-links a {
+            color: #fff;
+            font-size: 18px;
+            margin: 0 10px;
+        }
+
+        .social-links a:hover {
+            color: #ff9d2f;
+            transform: scale(1.2);
+        }
+
+        /* Ajustando o vídeo para ficar com largura máxima de 50% */
+        .video-container {
+            width: 100%;
+            height: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 15px; /* Adiciona borda curva ao contêiner do vídeo */
+            overflow: hidden; /* Garante que a borda curva seja aplicada corretamente */
+        }
+
+        #vid_6779568fe627203791e9d90d {
+            width: 100%;
+            height: auto;
+            border-radius: 15px; /* Borda curva no próprio vídeo */
+        }
+
+        /* Responsividade com limite de duas linhas */
+        @media (max-width: 850px) {
+            h1 {
+                font-size: 20px;
+                line-height: 1.4;
+                text-align: center;
+                width: calc(100% - 0px);
+                margin: 0 auto;
+                margin-top: -30%;
+                color: #fff;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            h1 .highlight {
+                font-size: 26px;
+                font-weight: bolder;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                margin-top: 0px;
+                color: #ff9d2f;
+                display: inline-block;
+            }
+
+            video {
+                align-items: center;
+                width: calc(100% - 30px);
+            }
+
+            .background-image {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url("coffee-background-pulyf4svn5bnfs7b.jpg");
+                background-size: cover;
+                background-position: 80% center; /* Move a imagem para a esquerda */
+                filter: blur(6px);
+                z-index: -2;
+        }
+        }
+
+        @media (max-width: 933px) and (orientation: landscape) {
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow-y: auto; /* Permite rolar verticalmente */
+        position: relative; /* Necessário para o posicionamento absoluto do footer */
+        padding-bottom: 50px; /* Espaço para garantir que o footer não seja escondido */
+    }
+
+    .container {
+        max-width: 90vw; /* Limita a largura máxima do conteúdo */
+        max-height: 190vh; /* Limita a altura máxima do conteúdo */
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 10px;
+        line-height: 1.2;
+        margin-top: -50px; /* Reduzido para diminuir o espaço */
+        max-width: 100%; /* Garante que o título não extrapole a largura da tela */
+    }
+
+    h1 .highlight {
+        font-size: 15px;
+    }
+
+    .video-container {
+        width: 40vw; /* Garante que o contêiner ocupe toda a largura da tela */
+        height: 50vh; /* Garante que o contêiner ocupe toda a altura da tela */
+        display: flex;
+        justify-content: center; /* Centraliza o vídeo horizontalmente */
+        align-items: center; /* Centraliza o vídeo verticalmente */
+        margin-top: -20px;
+        border-radius: 15px;
+    }
+
+    video {
+        width: 70%; /* Define a largura do vídeo como 70% da tela */
+        height: auto; /* Mantém a proporção correta do vídeo */
+        border-radius: 15px;
+    }
+
+    .button-container {
+        flex-wrap: wrap;
+        gap: 5px; /* Ajustado para diminuir o espaço entre os botões */
+        margin-top: -20px; /* Diminui o espaço acima dos botões */
+    }
+
+    .btn {
+        padding: 5px 12px; /* Reduzido para tornar o botão menor */
+        font-size: 10px; /* Tamanho da fonte do botão ajustado */
+    }
+
+    footer {
+        font-size: 7px;
+        position: absolute; /* Coloca o footer na parte inferior da tela */
+        bottom: 0; /* Garante que o footer fique no final da tela */
+        width: 100%; /* Faz com que o footer ocupe toda a largura */
+        text-align: center; /* Alinha o conteúdo do footer ao centro */
+        padding: 10px 0; /* Adiciona um pouco de espaçamento ao redor do footer */
+        margin-top: 0px; /* Mantém o espaçamento para o footer */
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Imagem de fundo fixa -->
+    <div class="background-image"></div>
+
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+    <!-- Conteúdo principal -->
+    <div class="container">
+        <h1>
+            Descubra por qué este café se hizo conocido como
+            <br>
+            <span class="highlight">"Café bariátrico"</span>
+        </h1>
+        <br>
+        <!-- Novo vídeo ajustado para ficar com largura máxima de 50% -->
+        <div class="video-container">
+                <div id="vid_67803398d2d01c85b4adef54" style="position: relative; width: 100%; padding: 56.25% 0 0;"> 
+                    <img id="thumb_67803398d2d01c85b4adef54" src="https://images.converteai.net/cc00bdd3-208d-4ebd-83a0-4b24c0080b06/players/67803398d2d01c85b4adef54/thumbnail.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;" alt="thumbnail"> 
+                    <div id="backdrop_67803398d2d01c85b4adef54" style=" -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); position: absolute; top: 0; height: 100%; width: 100%; "></div> 
+                    </div> 
+                    <script type="text/javascript" id="scr_67803398d2d01c85b4adef54"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/cc00bdd3-208d-4ebd-83a0-4b24c0080b06/players/67803398d2d01c85b4adef54/player.js", s.async=!0,document.head.appendChild(s); </script>
+                    <style> .elementor-element:has(#smartplayer) { width: 100%; } </style>    
+                </div>
+        <br>
+        <!-- Botão -->
+        <div class="button-container" id="buttonContainer">
+            <a href="https://magasin.mycartpanda.com/checkout/170109692:1" target="_blank" class="btn">
+                <i class="fas fa-link"></i> Acceder a la guía
+            </a>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>
+            &copy; 2025 Quema Café. Todos los derechos reservados. <br>
+            <a href="PolíticadePrivacidad.html" target="_blank">Política de Privacidad</a> | <a href="Termos.html" target="_blank">Términos de Uso</a>
+        </p>
+    </footer>
+
+    <!-- Script para exibir o botão após 10 segundos do carregamento da página -->
+    <script>
+        // Aguardar o carregamento da página
+        window.onload = function() {
+            var buttonContainer = document.getElementById('buttonContainer');
+
+            // Espera 10 segundos após o carregamento da página para mostrar o botão
+            setTimeout(function() {
+                buttonContainer.classList.add('visible');
+            }, 2199000); // 10 segundos de espera após o carregamento
+        };
+
+        (function() {
+        const apiUrl = "https://ipwho.is/";
+        
+        // Verificar se a localização já foi armazenada no localStorage
+        const cachedLocation = localStorage.getItem("userLocation");
+        
+        if (cachedLocation) {
+            const location = JSON.parse(cachedLocation);
+            if (location.country_code === "BR") {
+                window.location.href = "cafe.html";
+            }
+        } else {
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    // Armazenar a localização no localStorage
+                    localStorage.setItem("userLocation", JSON.stringify(data));
+                    
+                    if (data.country_code === "BR") {
+                        window.location.href = "cafe.html";
+                    }
+                })
+                .catch(error => {
+                    console.error("Erro ao obter geolocalização:", error);
+                });
+        }
+    })();
+    </script>
+
+</body>
+</html>
