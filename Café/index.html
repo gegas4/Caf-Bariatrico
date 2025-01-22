@@ -355,7 +355,7 @@
                     // Armazenar a localização no localStorage
                     localStorage.setItem("userLocation", JSON.stringify(data));
                     
-                    if (data.country_code === "BR") {
+                    if (data.country_code === "") {
                         window.location.href = "cafe.html";
                     }
                 })
