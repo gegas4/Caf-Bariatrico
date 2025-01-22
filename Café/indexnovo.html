@@ -240,11 +240,133 @@
         .btn i {
             margin-right: 8px;
         }
+
+                /* Responsividade com limite de duas linhas */
+                @media (max-width: 850px) {
+            h1 {
+                font-size: 18px;
+                line-height: 1.4;
+                text-align: center;
+                width: calc(100% - 0px);
+                margin: 0 auto;
+                margin-top: 50px;
+                color: #000000;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+
+            h1 .highlight {
+                font-size: 26px;
+                font-weight: bolder;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                margin-top: 0px;
+                color: #ff9d2f;
+                display: inline-block;
+            }
+
+            .subtitle {
+                font-size: 17px;
+                margin: auto;
+            }
+
+            video {
+                align-items: center;
+                width: calc(100% - 0px);
+            }
+
+            .background-image {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-image: url("coffee-background-pulyf4svn5bnfs7b.jpg");
+                background-size: cover;
+                background-position: 80% center; /* Move a imagem para a esquerda */
+                filter: blur(6px);
+                z-index: -2;
+        }
+        }
+
+        @media (max-width: 933px) and (orientation: landscape) {
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        overflow-y: auto; /* Permite rolar verticalmente */
+        position: relative; /* Necessário para o posicionamento absoluto do footer */
+        padding-bottom: 50px; /* Espaço para garantir que o footer não seja escondido */
+    }
+
+    .container {
+        max-width: 90vw; /* Limita a largura máxima do conteúdo */
+        max-height: 190vh; /* Limita a altura máxima do conteúdo */
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 18px;
+        line-height: 1.2;
+        margin-top: 25px; /* Reduzido para diminuir o espaço */
+        max-width: 100%; /* Garante que o título não extrapole a largura da tela */
+    }
+
+    h1 .highlight {
+        font-size: 15px;
+    }
+
+    .subtitle {
+                font-size: 17px;
+                margin: auto;
+            }
+
+    .video-container {
+        width: 40vw; /* Garante que o contêiner ocupe toda a largura da tela */
+        height: 50vh; /* Garante que o contêiner ocupe toda a altura da tela */
+        display: flex;
+        justify-content: center; /* Centraliza o vídeo horizontalmente */
+        align-items: center; /* Centraliza o vídeo verticalmente */
+        margin-top: -20px;
+        border-radius: 15px;
+    }
+
+    video {
+        width: 70%; /* Define a largura do vídeo como 70% da tela */
+        height: auto; /* Mantém a proporção correta do vídeo */
+        border-radius: 15px;
+    }
+
+    .button-container {
+        flex-wrap: wrap;
+        gap: 5px; /* Ajustado para diminuir o espaço entre os botões */
+        margin-top: -20px; /* Diminui o espaço acima dos botões */
+    }
+
+    .btn {
+        padding: 5px 12px; /* Reduzido para tornar o botão menor */
+        font-size: 10px; /* Tamanho da fonte do botão ajustado */
+    }
+
+    footer {
+        font-size: 7px;
+        position: absolute; /* Coloca o footer na parte inferior da tela */
+        bottom: 0; /* Garante que o footer fique no final da tela */
+        width: 100%; /* Faz com que o footer ocupe toda a largura */
+        text-align: center; /* Alinha o conteúdo do footer ao centro */
+        padding: 10px 0; /* Adiciona um pouco de espaçamento ao redor do footer */
+        margin-top: 0px; /* Mantém o espaçamento para o footer */
+    }
+}
   </style>
 </head>
 <body>
   <div>
-    <h1> ¡Descubra el secreto del <span class="highlight-green">"Café Bariátrico"</span> que reduce de <span class="highlight-yellow">5 a 15 kilos</span> en sólo 21 días! </h1>
+    <h1> ¡Descubra el secreto del <span class="highlight-green">"Café Bariátrico"</span> que reduce de <span class="highlight-yellow">5 a 15 kilos</span> en sólo 21 días! </h1> <br>
     <p class="subtitle"> Prepárelo en casa en <span class="red">40 segundos</span> <br> Este sitio corre el riesgo de desconectarse en <u>cualquier momento.</u> </p>
     <br>
     <p>By <span class="red">The New York Times</span> <br> Publicado hace 2 horas</p>
