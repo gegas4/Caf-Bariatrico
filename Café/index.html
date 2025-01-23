@@ -41,6 +41,67 @@
             z-index: -2;
         }
 
+        /* Estilo do Pop-up */
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            width: 80%;
+            height: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            visibility: hidden; /* Inicialmente invisível */
+            opacity: 0;
+            transform: translate(-50%, -50%); /* Centraliza o pop-up em relação à tela */
+            transition: visibility 0s, opacity 0.3s ease;
+        }
+
+        .popup.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .popup-content {
+            position: relative;
+            max-width: 80%;
+            max-height: 80%;
+        }
+
+        .popup-image {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .popup-image:hover {
+            transform: none;
+        }
+
+        .popup .popup-content {
+    position: relative; /* Necessário para o botão de fechar ser posicionado dentro da div */
+}
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 30px;
+            color: #fff;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            display: none; /* Inicialmente escondido */
+        }
+
+        .close-btn:hover {
+            color: #ff9d2f; /* Cor de hover do botão de fechar */
+        }
+
         /* Camada semi-transparente */
         .overlay {
             position: fixed;
@@ -108,11 +169,13 @@
             text-decoration: none;
             transition: all 0.3s ease;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite; /* Aplica a animação de pulsação */
         }
 
         .btn:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+            animation: none; /* Desativa a animação ao passar o mouse */
         }
 
         .btn i {
@@ -167,6 +230,23 @@
             border-radius: 15px; /* Borda curva no próprio vídeo */
         }
 
+        @keyframes pulse {
+        0% {
+            transform: scale(1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        50% {
+            transform: scale(1.1);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+        }
+        100% {
+            transform: scale(1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+
+    
+    }
         /* Responsividade com limite de duas linhas */
         @media (max-width: 850px) {
             h1 {
@@ -299,6 +379,8 @@
             <span class="highlight">"Café bariátrico"</span>
         </h1>
         <br>
+        
+        
         <!-- Novo vídeo ajustado para ficar com largura máxima de 50% -->
         <div class="video-container">
                 <div id="vid_67803398d2d01c85b4adef54" style="position: relative; width: 100%; padding: 56.25% 0 0;"> 
@@ -314,6 +396,18 @@
             <a href="https://magasin.mycartpanda.com/checkout/170109692:1" target="_blank" class="btn">
                 <i class="fas fa-link"></i> Acceder a la guía
             </a>
+        </div>
+    </div>
+
+    <!-- Pop-up -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span id="close-btn" class="close-btn">&times;</span>
+            <img 
+                src="Pop-up.jpg" 
+                alt="Promoção" 
+                class="popup-image" 
+                onclick="window.location.href='https://magasin.mycartpanda.com/checkout/170109692:1'">
         </div>
     </div>
 
@@ -334,7 +428,7 @@
             // Espera 10 segundos após o carregamento da página para mostrar o botão
             setTimeout(function() {
                 buttonContainer.classList.add('visible');
-            }, 2199000); // 10 segundos de espera após o carregamento
+            }, 0); // 2199000 segundos de espera após o carregamento
         };
 
         (function() {
@@ -364,7 +458,68 @@
                 });
         }
     })();
-    </script>
+            </script>
+
+            <script>
+            window.onload = function () {
+    const popup = document.getElementById('popup');
+    const closeBtn = document.getElementById('close-btn');
+    const buttonContainer = document.getElementById('buttonContainer');
+
+    // Exibir o pop-up após 2 segundos
+    setTimeout(() => {
+        popup.classList.add('show');
+    }, 2000);
+
+    // Exibir o botão de fechar após 10 segundos
+    setTimeout(() => {
+        closeBtn.style.display = 'block';
+    }, 10000);
+
+    // Fechar o pop-up ao clicar fora da área do pop-up (na camada de fundo)
+    document.addEventListener('click', function (event) {
+        if (popup.classList.contains('show') && !popup.contains(event.target) && !closeBtn.contains(event.target)) {
+            popup.classList.remove('show');
+        }
+    });
+
+    // Fechar o pop-up ao clicar no botão de fechar
+    closeBtn.onclick = function () {
+        popup.classList.remove('show');
+    };
+
+    // Exibir o botão após 10 segundos
+    setTimeout(() => {
+        buttonContainer.classList.add('visible');
+    }, 10000);
+};
+            </script>
+
+            <script>
+                // Exibir o pop-up e o botão de "X" após 2 segundos
+        window.onload = function() {
+            var popup = document.getElementById('popup');
+            var closeBtn = document.getElementById('close-btn');
+
+            // Exibir o pop-up após 0 segundos
+            setTimeout(function() {
+                popup.style.visibility = 'visible';
+                popup.style.opacity = 1;
+            }, 0); // 0 segundos após o carregamento da página
+
+            // Exibir o botão de fechar após 10 segundos de o pop-up aparecer
+            setTimeout(function() {
+                closeBtn.style.display = 'block';
+            }, 10000); // 10 segundos após o pop-up aparecer
+
+            // Fechar o pop-up quando o botão de fechar for clicado
+            closeBtn.onclick = function() {
+                popup.style.visibility = 'hidden';
+                popup.style.opacity = 0;
+                closeBtn.style.display = 'none'; // Esconde o botão novamente
+            };
+        };
+            </script>
 
 </body>
 </html>
