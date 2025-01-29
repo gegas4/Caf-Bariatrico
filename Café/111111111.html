@@ -242,11 +242,10 @@
         100% {
             transform: scale(1);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-        }
+        }}
 
 
-    
-    }
+
         /* Responsividade com limite de duas linhas */
         @media (max-width: 850px) {
             h1 {
@@ -290,6 +289,16 @@
                 background-position: 80% center; /* Move a imagem para a esquerda */
                 filter: blur(6px);
                 z-index: -2;
+        }
+
+        .popup{
+            position: absolute;
+            width: 500px;
+            margin-top: -50px;
+        }
+
+        .close-btn {
+            color: #ff5e00; /* Cor laranja */
         }
         }
 
@@ -375,7 +384,7 @@
     <div id="popup" class="popup">
         <div class="popup-content">
             <button class="close-btn" id="close-btn">×</button>
-            <img src="Pop-up.jpg" alt="Imagem do Pop-up" class="popup-image">
+            <img src="Pop-up.png" alt="Imagem do Pop-up" class="popup-image">
         </div>
     </div>
 
@@ -401,8 +410,8 @@
         <br>
         <!-- Botão -->
         <div class="button-container" id="buttonContainer">
-            <a href="https://magasin.mycartpanda.com/checkout/170109692:1" target="_blank" class="btn">
-                <i class="fas fa-link"></i> Acceder a la guía
+            <a href="https://pay.hotmart.com/F97711117T?off=6iwzoca7&bid=1738177276181" target="_blank" class="btn">
+                <i class="fas fa-link"></i> ¡QUIERO EL CAFÉ BARIÁTRICO!
             </a>
         </div>
     </div>
@@ -427,7 +436,7 @@
             setTimeout(function() {
                 popup.style.visibility = 'visible';
                 popup.style.opacity = 1;
-            }, 0); // 0 segundos após o carregamento da página
+            },  0); // 2205000 segundos após o carregamento da página
     
             // Exibir o botão de fechar imediatamente
             setTimeout(function() {
@@ -444,7 +453,7 @@
     
             // Redirecionar quando o pop-up for clicado (dentro da área do conteúdo do pop-up)
             popupContent.onclick = function () {
-                window.location.href = "https://magasin.mycartpanda.com/checkout/170109692:1";
+                window.location.href = "https://pay.hotmart.com/F97711117T?off=6iwzoca7&bid=1738177276181";
             };
     
             // Impedir que o redirecionamento aconteça se o clique foi no botão de fechar
@@ -458,7 +467,7 @@
             // Exibir o botão após 1 segundo
             setTimeout(function() {
                 buttonContainer.classList.add('visible'); // Torna o botão visível
-            }, 1000); // 1000ms = 1 segundo
+            }, 0); // 2080000
         };
     </script>
     
