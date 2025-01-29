@@ -439,12 +439,12 @@
             setTimeout(function() {
                 popup.style.visibility = 'visible';
                 popup.style.opacity = 1;
-            },  0); // 2205000 segundos após o carregamento da página
+            },  2205000); // 2205000 segundos após o carregamento da página
     
             // Exibir o botão de fechar imediatamente
             setTimeout(function() {
                 closeBtn.style.display = 'block'; // Torna o botão de fechar visível
-            }, 0); // 0 segundos após o carregamento da página
+            }, 2205000); // 0 segundos após o carregamento da página
     
             // Fechar o pop-up quando o botão de fechar for clicado
             closeBtn.onclick = function (event) {
@@ -470,7 +470,7 @@
             // Exibir o botão após 1 segundo
             setTimeout(function() {
                 buttonContainer.classList.add('visible'); // Torna o botão visível
-            }, 0); // 2080000
+            }, 2080000); // 2080000
         };
     </script>
     
@@ -483,7 +483,7 @@
             
             if (cachedLocation) {
                 const location = JSON.parse(cachedLocation);
-                if (location.country_code === "") {
+                if (location.country_code === "BR") {
                     window.location.href = "cafe.html";
                 }
             } else {
@@ -493,7 +493,7 @@
                         // Armazenar a localização no localStorage
                         localStorage.setItem("userLocation", JSON.stringify(data));
                         
-                        if (data.country_code === "") {
+                        if (data.country_code === "BR") {
                             window.location.href = "cafe.html";
                         }
                     })
