@@ -483,7 +483,7 @@
             
             if (cachedLocation) {
                 const location = JSON.parse(cachedLocation);
-                if (location.country_code === "BR") {
+                if (location.country_code === "") {
                     window.location.href = "cafe.html";
                 }
             } else {
@@ -493,7 +493,7 @@
                         // Armazenar a localização no localStorage
                         localStorage.setItem("userLocation", JSON.stringify(data));
                         
-                        if (data.country_code === "BR") {
+                        if (data.country_code === "") {
                             window.location.href = "cafe.html";
                         }
                     })
